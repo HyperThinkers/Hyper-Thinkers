@@ -6,6 +6,7 @@ import {
   Orbitron,
 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -71,22 +72,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`
-        ${spaceGrotesk.variable}
-        ${inter.variable}
-        ${jetbrainsMono.variable}
-        ${orbitron.variable}
-        scroll-smooth
-      `}
-    >
-      <body className="bg-background text-foreground antialiased overflow-x-hidden font-sans">
-        {children}
+    <ClerkProvider>
+      <html
+        lang="en"
+        suppressHydrationWarning
+        className={`
+          ${spaceGrotesk.variable}
+          ${inter.variable}
+          ${jetbrainsMono.variable}
+          ${orbitron.variable}
+          scroll-smooth
+        `}
+      >
+        <body className="bg-background text-foreground antialiased overflow-x-hidden font-sans">
+          {children}
 
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
-    </html>
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

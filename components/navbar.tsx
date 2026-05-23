@@ -65,15 +65,25 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <motion.button
+          {/* Auth Buttons */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="hidden sm:block px-6 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:shadow-glow transition-all duration-300 hover:scale-105"
+          className="hidden sm:flex items-center gap-3"
         >
-          Contact
-        </motion.button>
+          <Link href="/sign-in">
+            <button className="px-5 py-2 rounded-lg border border-border bg-background/50 text-foreground font-medium text-sm hover:border-accent hover:text-accent transition-all duration-300">
+              Login
+            </button>
+          </Link>
+
+          <Link href="/sign-up">
+            <button className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:shadow-glow transition-all duration-300 hover:scale-105">
+              Sign Up
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </motion.nav>
   )
