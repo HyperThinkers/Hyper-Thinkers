@@ -1,0 +1,12 @@
+# v0 sandbox internal files
+
+
+node_modules
+.next
+.env
+.env.local
+dist
+build
+coverage
+
+# Common ignores
